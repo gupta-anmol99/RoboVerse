@@ -52,3 +52,7 @@ class CloseBoxCfg(RLBenchTaskCfg):
 - Verify success conditions with multiple trajectories. Some trajectores fall short of the typical success threshold.
 - Verify all 10 tasks.
 
+
+## Updates
+- For relative position based task, for eg. stack cubes, we need to use a detector which can be found in `/metasim/cfg/checkers/detectors.py`.
+
