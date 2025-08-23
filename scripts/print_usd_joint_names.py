@@ -25,6 +25,7 @@ sim_cfg = sim_utils.SimulationCfg(dt=0.01, device="cpu")
 sim = sim_utils.SimulationContext(sim_cfg)
 sim.reset()
 
+print("Joint names:")
 print("=" * 100)
 print(obj.joint_names)
 print("=" * 100)
@@ -36,5 +37,6 @@ for joint_name, joint_limit in zip(obj.joint_names, joint_limits):
     print(f"{joint_name}: ({joint_limit[0]:.4f}, {joint_limit[1]:.4f})")
 
 print("=" * 100)
+print("Body names:")
 print(obj.body_names)
 print("=" * 100)

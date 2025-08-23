@@ -52,7 +52,7 @@ scenario = metasim_env.scenario
 actions = np.zeros((NUM_ENVS, len(scenario.robots[0].joint_limits)))
 
 obs, _ = metasim_env.reset()
-for step_i in range(100):
+for step_i in range(500):
     action_dicts = [
         {
             scenario.robots[0].name: {
