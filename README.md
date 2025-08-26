@@ -46,13 +46,14 @@ class CloseBoxCfg(RLBenchTaskCfg):
 - `checker` This defines the **success** condition for the task. Put the name of the usd file for the object for example for CloseFridge task, check the name of the asset of fridge object. To get the joint name, use the `/scripts/print_usd_joint_names.py`. This script provides the joint names as well as their joint limits. There are two modes, "le" and "ge" that corresponds to less than and greater than or equal to. Finally radian_threshold defines the threshold for le and ge. Note that radian_threshold is valid for both revolute and prismatic joints. There are other checkers that are present in `/metasim/cfg/checkers/checkers.py`
 
 ## 📍Roadmap
-- Select 10 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). 
+- Select 6 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). ✅
 - Document thier joint names and limits.
 - Add the success checker for them.
 - Verify success conditions with multiple trajectories. Some trajectores fall short of the typical success threshold.
-- Verify all 10 tasks.
+- Verify all 6 tasks.
 
 
 ## Updates
 - For relative position based task, for eg. stack cubes, we need to use a detector which can be found in `/metasim/cfg/checkers/detectors.py`.
+- Tasks names: Open a box, Close Drawer, Close microwave, Pick up cup, Press 3 buttons, Put knife in the block
 

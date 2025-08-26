@@ -1,0 +1,29 @@
+{
+  "box_base": {
+    "joint_names": [
+      "box_joint"
+    ],
+    "joint_limits": {
+      "box_joint": [
+        -0.25307270884513855,
+        2.3649208545684814
+      ]
+    }
+  },
+  "fridge_base": {
+    "joint_names": [
+      "bottom_joint",
+      "top_joint"
+    ],
+    "joint_limits": {
+      "bottom_joint": [
+        0.0,
+        1.5707963705062866
+      ],
+      "top_joint": [
+        0.0,
+        1.5707963705062866
+      ]
+    }
+  }
+}

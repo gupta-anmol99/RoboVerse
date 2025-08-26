@@ -39,6 +39,7 @@ def __get_quick_ref():
     from .rlbench.close_box_cfg import CloseBoxCfg
     from .rlbench.close_fridge_cfg import CloseFridgeCfg
     from .rlbench.close_grill_cfg import CloseGrillCfg
+    from .rlbench.open_box_cfg import OpenBoxCfg
     from .robosuite import SquareD0Cfg, SquareD1Cfg, SquareD2Cfg, StackD0Cfg
     from .simpler_env.simpler_env_grasp_opened_coke_can_cfg import SimplerEnvGraspOpenedCokeCanCfg
     from .simpler_env.simpler_env_move_near import SimplerEnvMoveNearCfg
