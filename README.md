@@ -62,7 +62,7 @@ Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are 
 
 ### 📍Roadmap
 - Select 6 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). ✅
-- Go through bbox cheker and detected checker
+- Go through bbox cheker and detected checker ✅
 - Make a composite checker for multi joints
 - Document thier joint names and limits.
 - Add the success checker for them.
@@ -73,6 +73,7 @@ Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are 
 ### Updates
 - For relative position based task, for eg. stack cubes, we need to use a detector which can be found in `/metasim/cfg/checkers/detectors.py`.
 - Tasks names: Open a box, Close Drawer, Close microwave, Pick up cup, Press 3 buttons, Put knife in the block
+- For tasks involving rigid bodies, for example, pick up cup or put knife in the block, we need to run the `sim/RoboVerse/scripts/clean_usd.py` script. This script adds the collision API to the obejcts. Note that, original version of this file has a minor error in `main()` which we have rectified in this patch. To clean just run: `python scripts/clean_usd.py --tasks PickUpCup`
 
 ### Tasks List
 - Open/Close a box: ✅

@@ -42,6 +42,7 @@ def __get_quick_ref():
     from .rlbench.close_drawer_cfg import CloseDrawerCfg, OpenDrawerCfg
     from .rlbench.close_microwave_cfg import CloseMicrowaveCfg, OpenMicrowaveCfg
     from .rlbench.put_knife_in_knife_block_cfg import PutKnifeInKnifeBlockCfg
+    from .rlbench.pick_up_cup_cfg import PickUpCupCfg
     #############################################################
     from .robosuite import SquareD0Cfg, SquareD1Cfg, SquareD2Cfg, StackD0Cfg
     from .simpler_env.simpler_env_grasp_opened_coke_can_cfg import SimplerEnvGraspOpenedCokeCanCfg
