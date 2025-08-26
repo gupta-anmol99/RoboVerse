@@ -25,5 +25,26 @@
         1.5707963705062866
       ]
     }
+  },
+  "drawer_frame": {
+    "joint_names": [
+      "drawer_joint_bottom",
+      "drawer_joint_middle",
+      "drawer_joint_top"
+    ],
+    "joint_limits": {
+      "drawer_joint_bottom": [
+        0.0,
+        0.30000001192092896
+      ],
+      "drawer_joint_middle": [
+        0.0,
+        0.30000001192092896
+      ],
+      "drawer_joint_top": [
+        0.0,
+        0.30000001192092896
+      ]
+    }
   }
 }

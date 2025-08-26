@@ -26,5 +26,5 @@ class OpenBoxCfg(RLBenchTaskCfg):
         joint_name="box_joint",
         mode="ge",
         # radian_threshold=-14 / 180 * math.pi,
-        radian_threshold=math.pi / 3,
+        radian_threshold=1.2,
     )

@@ -194,7 +194,9 @@ class BaseSimHandler(ABC):
             env_ids = list(range(self.num_envs))
 
         states = self.get_states(env_ids=env_ids)
+        
         states = state_tensor_to_nested(self, states)
+        log.error(f"States: {states}")
         return torch.tensor([
             {**env_state["objects"], **env_state["robots"]}[obj_name]["dof_pos"][joint_name] for env_state in states
         ])
