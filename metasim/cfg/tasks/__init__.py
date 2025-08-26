@@ -35,10 +35,14 @@ def __get_quick_ref():
     from .maniskill.pick_single_ycb import PickSingleYcbCrackerBoxCfg
     from .maniskill.stack_cube_cfg import StackCubeCfg
     from .rlafford.rl_afford_open_door_cfg import RlAffordOpenDoorCfg
+    ################### RL Bench Tasks #########################
     from .rlbench.basketball_in_hoop_cfg import BasketballInHoopCfg
     from .rlbench.close_box_cfg import CloseBoxCfg
     from .rlbench.open_box_cfg import OpenBoxCfg
-    from .rlbench.close_drawer_cfg import CloseDrawerCfg
+    from .rlbench.close_drawer_cfg import CloseDrawerCfg, OpenDrawerCfg
+    from .rlbench.close_microwave_cfg import CloseMicrowaveCfg, OpenMicrowaveCfg
+    from .rlbench.put_knife_in_knife_block_cfg import PutKnifeInKnifeBlockCfg
+    #############################################################
     from .robosuite import SquareD0Cfg, SquareD1Cfg, SquareD2Cfg, StackD0Cfg
     from .simpler_env.simpler_env_grasp_opened_coke_can_cfg import SimplerEnvGraspOpenedCokeCanCfg
     from .simpler_env.simpler_env_move_near import SimplerEnvMoveNearCfg

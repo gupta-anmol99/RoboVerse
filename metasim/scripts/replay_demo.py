@@ -187,6 +187,9 @@ def main():
 
     ## Reset before first step
     tic = time.time()
+    # First just reset
+    # obs, extras = env.reset()
+    # Then reset to initial states
     obs, extras = env.reset(states=init_states[:num_envs])
     toc = time.time()
     log.trace(f"Time to reset: {toc - tic:.2f}s")

@@ -41,6 +41,7 @@ def get_traj_v2(task: BaseTaskCfg, robot: BaseRobotCfg):
         path = paths[0]
         log.info(f"Loading trajectory from {path}")
         data = load_traj_file(path)[robot.name]
+        log.info(f"Found {len(data)} demonstrations")
 
     ## Parse initial states
     if "init_state" in data[0]:

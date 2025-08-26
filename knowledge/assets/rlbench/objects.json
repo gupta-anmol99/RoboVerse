@@ -46,5 +46,16 @@
         0.30000001192092896
       ]
     }
+  },
+  "microwave_frame_resp": {
+    "joint_names": [
+      "microwave_door_joint"
+    ],
+    "joint_limits": {
+      "microwave_door_joint": [
+        0.0,
+        1.5707963705062866
+      ]
+    }
   }
 }

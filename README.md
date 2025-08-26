@@ -45,8 +45,24 @@ class CloseBoxCfg(RLBenchTaskCfg):
 - `traj_filepath` If replaying a trajectory, this field contains the location of pkl.gz file containing the trajectories.
 - `checker` This defines the **success** condition for the task. Put the name of the usd file for the object for example for CloseFridge task, check the name of the asset of fridge object. To get the joint name, use the `/scripts/print_usd_joint_names.py`. This script provides the joint names as well as their joint limits. There are two modes, "le" and "ge" that corresponds to less than and greater than or equal to. Finally radian_threshold defines the threshold for le and ge. Note that radian_threshold is valid for both revolute and prismatic joints. There are other checkers that are present in `/metasim/cfg/checkers/checkers.py`
 
-## 📍Roadmap
+### Checkers and Detectors
+Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are in `/metasim/cfg/checkers/detectors.py`.
+
+#### Checkers
+- JointPosChecker: Checks if the `joint name` of the `object name` has positions of (less than or greater than) the threshold.
+- JointPosShiftChecker: Checks if the `joint name` of the `object name` was moved more than a threshold.
+- RotationShiftChecker: Checks if the `object name` was rotated more than a threshold around a given axis.
+- PositionShiftChecker: CHecks if the `object name` was moved more than distance in meters in a gived axis.
+- DetectedChecker: Check if the detectors specified has its conditioned fulfilled.
+
+#### Detectors
+- RelativeBboxDetector: Checks if the object is inside a bounding box. It takes a base_obj_name relative to which we define the bounding box using two opposide vertices, `checker_lower` and `checker_above`.
+
+## TODOs
+
+### 📍Roadmap
 - Select 6 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). ✅
+- Go through bbox cheker and detected checker
 - Make a composite checker for multi joints
 - Document thier joint names and limits.
 - Add the success checker for them.
@@ -54,11 +70,15 @@ class CloseBoxCfg(RLBenchTaskCfg):
 - Verify all 6 tasks.
 
 
-## Updates
+### Updates
 - For relative position based task, for eg. stack cubes, we need to use a detector which can be found in `/metasim/cfg/checkers/detectors.py`.
 - Tasks names: Open a box, Close Drawer, Close microwave, Pick up cup, Press 3 buttons, Put knife in the block
 
-### Tasks
+### Tasks List
 - Open/Close a box: ✅
-- Close Drawer: ✅
+- Open/Close Drawer: ✅
+- Open/Close microwave: ✅
+- Pick up cup: ⛔ (Problem with usd file itself.)
+- Press 3 buttons
+- Put knife in the block
 
