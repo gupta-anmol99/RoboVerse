@@ -82,5 +82,6 @@ class LiberoPickButterCfg(BaseTaskCfg):
             relative_quat=[1.0, 0.0, 0.0, 0.0],
             checker_lower=[-0.08, -0.08, -0.11],
             checker_upper=[0.08, 0.08, 0.05],
+            debug_vis=True
         ),
     )

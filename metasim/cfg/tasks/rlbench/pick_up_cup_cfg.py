@@ -1,6 +1,7 @@
 from metasim.cfg.objects import RigidObjCfg
 from metasim.constants import PhysicStateType
 from metasim.utils import configclass
+from metasim.cfg.checkers.checkers import PositionShiftChecker
 
 from .rlbench_task_cfg import RLBenchTaskCfg
 
@@ -21,4 +22,8 @@ class PickUpCupCfg(RLBenchTaskCfg):
             physics=PhysicStateType.RIGIDBODY,
         ),
     ]
-    # TODO: add checker
+    checker = PositionShiftChecker(
+        obj_name="cup1_visual",
+        distance=0.2,
+        axis="z",
+    )

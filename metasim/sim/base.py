@@ -103,6 +103,7 @@ class BaseSimHandler(ABC):
 
     def set_pose(self, obj_name: str, pos: torch.Tensor, rot: torch.Tensor, env_ids: list[int] | None = None) -> None:
         states = [{obj_name: {"pos": pos[env_id], "rot": rot[env_id]}} for env_id in range(self.num_envs)]
+        log.debug(f"Setting pose for {obj_name}: {states}")
         self.set_states(states, env_ids=env_ids)
 
     ############################################################
@@ -194,7 +195,9 @@ class BaseSimHandler(ABC):
             env_ids = list(range(self.num_envs))
 
         states = self.get_states(env_ids=env_ids)
+        
         states = state_tensor_to_nested(self, states)
+        log.error(f"States: {states}")
         return torch.tensor([
             {**env_state["objects"], **env_state["robots"]}[obj_name]["dof_pos"][joint_name] for env_state in states
         ])

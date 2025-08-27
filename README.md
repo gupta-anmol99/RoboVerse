@@ -1,87 +1,85 @@
-<p align="center">
-  <img src="docs/source/_static/RoboVerse86.22.svg" width="50%" alt="RoboVerse">
-</p>
-
-![RoboVerse](docs/source/metasim/images/tea.jpg)
-
-
-<p align="center">
-  <a href="https://roboverseorg.github.io"><img src="https://img.shields.io/badge/project-page-brightgreen" alt="Project Page"></a>
-  <a href="https://arxiv.org/abs/2504.18904"><img src="https://img.shields.io/badge/paper-preprint-red" alt="Paper"></a>
-  <a href="https://roboverse.wiki"><img src="https://img.shields.io/badge/doc-page-orange" alt="Documentation"></a>
-  <a href="https://github.com/RoboVerseOrg/RoboVerse/issues"><img src="https://img.shields.io/github/issues/RoboVerseOrg/RoboVerse?color=yellow" alt="Issues"></a>
-  <a href="https://github.com/RoboVerseOrg/RoboVerse/discussions"><img src="https://img.shields.io/github/discussions/RoboVerseOrg/RoboVerse?color=blueviolet" alt="Discussions"></a>
-  <a href="https://discord.gg/6e2CPVnAD3"><img src="https://img.shields.io/discord/1356345436927168552?logo=discord&color=blue" alt="Discord"></a>
-  <a href="docs/source/_static/wechat.jpg"><img src="https://img.shields.io/badge/wechat-QR_code-green" alt="WeChat"></a>
-</p>
-
-
-## 💡 News
-- [2025-04-10] RoboVerse gets accepted by RSS 2025!
-- [2025-04-03] Code released! This codebase is actively evolving, and we are continuously working to improve it. Contributions from the open-source community are highly encouraged, and we welcome feedback and bug reports through the GitHub Issues page.
+# Roboverse V2E Patch
+This documentation contains the patches for Roboverse for V2E Benchmark. 
 
 ## 🚀 Getting Started
+- To download Roboverse, please refer to the original [documentation](https://roboverse.wiki/metasim/#).
+- Roboverse team provides basic tutorials for getting started [tutorials](https://roboverse.wiki/metasim/get_started/quick_start/0_static_scene)
 
-Please refer to the [documentation](https://roboverse.wiki/metasim/#).
+## 🛠️ Get Started
+### 💾 Dataset
+- The dataset is available on [huggingface](https://huggingface.co/datasets/RoboVerseOrg/roboverse_data). 
+- This dataset contains assets, robots, scenes and trajs. 
+- Assets are sorted by the dataset they were taken from and contain object assets. For example, the assests for rlbench contains obejct wise assets for every task. Most of the assets are in [usd](https://openusd.org/release/index.html) format.
+- Trajs contains robot trajectories for tasks. The trajectores are sorted by the datasets and are stored in pkl.gz format.
 
-We also privide detailed [tutorials](https://roboverse.wiki/metasim/get_started/quick_start/0_static_scene) for getting started
+**Note:** The data set is hosted on huggingface and doesn't need downloading seperately. `/metasim/utils/hf_util.py` contains scripts that downloads the data on the run, if required.
 
-## 🥰 Contributing
-Contributions are welcome! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for more details on how to contribute to this project.
+### 🚩 Tasks
+The tasks in roboverse are based on configuration files. These cfg files are contained in `/metasim/cfg/tasks`. 
+Config file for every task looks something like this-
 
-## 🎅 Wish List
-If you have any feature requests (e.g., support for new simulators, new tasks, new workflows, or new features), feel free to add them to the Wish List section of our [GitHub Discussions](https://github.com/RoboVerseOrg/RoboVerse/discussions/categories/wish-list).
-
-You can also upvote the requests you find most relevant or important. We'll prioritize updates based on the number of upvotes each request receives!
-
-## 📖 License and Acknowledgments
-
-The RoboVerse source code is licensed under the Apache License 2.0.
-
-RoboVerse makes use of the following simulation frameworks, renderers, and libraries:
-- [Isaac Lab](https://github.com/isaac-sim/IsaacLab), which is built on top of [Isaac Sim](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html)
-- [Isaac Gym](https://developer.nvidia.com/isaac-gym)
-- [MuJoCo](https://github.com/google-deepmind/mujoco)
-- [SAPIEN](https://github.com/haosulab/SAPIEN)
-- [PyBullet](https://github.com/bulletphysics/bullet3)
-- [Genesis](https://github.com/Genesis-Embodied-AI/Genesis)
-- [cuRobo](https://github.com/NVlabs/curobo)
-- [PyRep](https://github.com/stepjam/PyRep), which is built on top of [CoppeliaSim](https://www.coppeliarobotics.com/)
-- [Blender](https://www.blender.org/)
-
-RoboVerse also integrates data from the following projects:
-- [RLBench](https://github.com/stepjam/RLBench)
-- [Maniskill](https://github.com/haosulab/ManiSkill)
-- [LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO)
-- [Meta-World](https://github.com/Farama-Foundation/Metaworld)
-- [robosuite](https://github.com/ARISE-Initiative/robosuite)
-- [GraspNet](https://graspnet.net/)
-- [ARNOLD](https://arnold-benchmark.github.io/)
-- [GAPartNet](https://github.com/PKU-EPIC/GAPartNet)
-- [GAPartManip](https://arxiv.org/abs/2411.18276)
-- [UniDoorManip](https://github.com/sectionZ6/UniDoorManip)
-- [SimplerEnv](https://github.com/simpler-env/SimplerEnv)
-- [RLAfford](https://github.com/hyperplane-lab/RLAfford)
-- [Open6DOR](https://github.com/Selina2023/Open6DOR)
-- [CALVIN](https://github.com/mees/calvin)
-- [GarmentLab](https://github.com/GarmentLab/GarmentLab)
-- [Matterport3D](https://github.com/niessner/Matterport)
-- [VLN-CE](https://github.com/jacobkrantz/VLN-CE)
-- [vMaterials](https://developer.nvidia.com/vmaterials)
-- [HumanoidBench](https://github.com/carlosferrazza/humanoid-bench)
-
-The licenses for the assets used in RoboVerse will be added soon. Please contact us if you have any issues.
-
-## Citation
-If you find RoboVerse useful, please consider citing it:
-```bibtex
-@misc{geng2025roboverse,
-      title={RoboVerse: Towards a Unified Platform, Dataset and Benchmark for Scalable and Generalizable Robot Learning}, 
-      author={Haoran Geng and Feishi Wang and Songlin Wei and Yuyang Li and Bangjun Wang and Boshi An and Charlie Tianyue Cheng and Haozhe Lou and Peihao Li and Yen-Jen Wang and Yutong Liang and Dylan Goetting and Chaoyi Xu and Haozhe Chen and Yuxi Qian and Yiran Geng and Jiageng Mao and Weikang Wan and Mingtong Zhang and Jiangran Lyu and Siheng Zhao and Jiazhao Zhang and Jialiang Zhang and Chengyang Zhao and Haoran Lu and Yufei Ding and Ran Gong and Yuran Wang and Yuxuan Kuang and Ruihai Wu and Baoxiong Jia and Carlo Sferrazza and Hao Dong and Siyuan Huang and Yue Wang and Jitendra Malik and Pieter Abbeel},
-      year={2025},
-      eprint={2504.18904},
-      archivePrefix={arXiv},
-      primaryClass={cs.RO},
-      url={https://arxiv.org/abs/2504.18904}, 
-}
 ```
+@configclass
+class CloseBoxCfg(RLBenchTaskCfg):
+    episode_length = 250
+    objects = [
+        ArticulationObjCfg(
+            name="box_base",
+            fix_base_link=True,
+            usd_path="metasim/data/quick_start/assets/rlbench/close_box/box_base/usd/box_base.usd",
+            urdf_path="metasim/data/quick_start/assets/rlbench/close_box/box_base/urdf/box_base_unique.urdf",
+            mjcf_path="metasim/data/quick_start/assets/rlbench/close_box/box_base/mjcf/box_base_unique.mjcf",
+        ),
+    ]
+    traj_filepath = "metasim/data/quick_start/trajs/rlbench/close_box/v2"
+    checker = JointPosChecker(
+        obj_name="box_base",
+        joint_name="box_joint",
+        mode="le",
+        radian_threshold=-14 / 180 * math.pi,
+    )
+```
+- `@configclass` is a wrapper around  dataclass. It adds some checks for removing the mutable data strucutre problem.
+- `TaskCfg` In example it uses RLBenchTaskCfg. This encodes the a lot of parameters of the task, including but not limited to, task type, episode length, objects,  etc.
+- `objects` define all the objects present in the scene. You need to give the file path for atleast one fo the format. 
+- `traj_filepath` If replaying a trajectory, this field contains the location of pkl.gz file containing the trajectories.
+- `checker` This defines the **success** condition for the task. Put the name of the usd file for the object for example for CloseFridge task, check the name of the asset of fridge object. To get the joint name, use the `/scripts/print_usd_joint_names.py`. This script provides the joint names as well as their joint limits. There are two modes, "le" and "ge" that corresponds to less than and greater than or equal to. Finally radian_threshold defines the threshold for le and ge. Note that radian_threshold is valid for both revolute and prismatic joints. There are other checkers that are present in `/metasim/cfg/checkers/checkers.py`
+
+### Checkers and Detectors
+Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are in `/metasim/cfg/checkers/detectors.py`.
+
+#### Checkers
+- JointPosChecker: Checks if the `joint name` of the `object name` has positions of (less than or greater than) the threshold.
+- JointPosShiftChecker: Checks if the `joint name` of the `object name` was moved more than a threshold.
+- RotationShiftChecker: Checks if the `object name` was rotated more than a threshold around a given axis.
+- PositionShiftChecker: CHecks if the `object name` was moved more than distance in meters in a gived axis.
+- DetectedChecker: Check if the detectors specified has its conditioned fulfilled.
+
+#### Detectors
+- RelativeBboxDetector: Checks if the object is inside a bounding box. It takes a base_obj_name relative to which we define the bounding box using two opposide vertices, `checker_lower` and `checker_above`.
+
+## TODOs
+
+### 📍Roadmap
+- Select 6 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). ✅
+- Go through bbox cheker and detected checker ✅
+- Make a composite checker for multi joints
+- Document thier joint names and limits.
+- Add the success checker for them.
+- Verify success conditions with multiple trajectories. Some trajectores fall short of the typical success threshold.
+- Verify all 6 tasks.
+
+
+### Updates
+- For relative position based task, for eg. stack cubes, we need to use a detector which can be found in `/metasim/cfg/checkers/detectors.py`.
+- Tasks names: Open a box, Close Drawer, Close microwave, Pick up cup, Press 3 buttons, Put knife in the block
+- For tasks involving rigid bodies, for example, pick up cup or put knife in the block, we need to run the `sim/RoboVerse/scripts/clean_usd.py` script. This script adds the collision API to the obejcts. Note that, original version of this file has a minor error in `main()` which we have rectified in this patch. To clean just run: `python scripts/clean_usd.py --tasks PickUpCup`
+
+### Tasks List
+- Open/Close a box: ✅
+- Open/Close Drawer: ✅
+- Open/Close microwave: ✅
+- Pick up cup: ✅
+- Press 3 buttons: 
+- Put knife in the block
+

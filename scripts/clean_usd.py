@@ -105,7 +105,10 @@ def remove_fixed_joint(usd_path: str):
 def main():
     usd_paths = []
     for task in args.tasks:
-        task_cfg = get_task(task)
+        TaskCfg = get_task(task)
+        task_cfg = TaskCfg() if isinstance(TaskCfg, type) else TaskCfg
+        print(dir(task_cfg))
+        print("########################################3")
         for obj_cfg in task_cfg.objects:
             if isinstance(obj_cfg, RigidObjCfg) and obj_cfg.usd_path is not None and obj_cfg.usd_path not in usd_paths:
                 usd_paths.append(obj_cfg.usd_path)

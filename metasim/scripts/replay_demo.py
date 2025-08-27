@@ -174,6 +174,8 @@ def main():
     init_states, all_actions, all_states = get_traj(
         scenario.task, scenario.robots[0], env.handler
     )  # XXX: only support one robot
+
+
     toc = time.time()
     log.trace(f"Time to load data: {toc - tic:.2f}s")
 
@@ -185,6 +187,9 @@ def main():
 
     ## Reset before first step
     tic = time.time()
+    # First just reset
+    # obs, extras = env.reset()
+    # Then reset to initial states
     obs, extras = env.reset(states=init_states[:num_envs])
     toc = time.time()
     log.trace(f"Time to reset: {toc - tic:.2f}s")
@@ -197,6 +202,7 @@ def main():
         tic = time.time()
         if scenario.object_states:
             ## TODO: merge states replay into env.step function
+            log.info("We are in state replay mode!")
             if all_states is None:
                 raise ValueError("All states are None, please check the trajectory file")
             states = get_states(all_states, step, num_envs)
@@ -212,6 +218,7 @@ def main():
                 break
 
         else:
+            log.info("We are not in state replay mode!")
             actions = get_actions(all_actions, step, num_envs, scenario.robots[0])
             obs, reward, success, time_out, extras = env.step(actions)
 
