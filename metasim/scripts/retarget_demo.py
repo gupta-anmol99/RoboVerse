@@ -277,7 +277,8 @@ def single(src_path, tgt_path, src_robot, tgt_robot):
 def main():
     if args.tasks is not None:
         for task_name in args.tasks:
-            task = get_task(task_name)
+            TaskCfgClass = get_task(task_name)
+            task = TaskCfgClass()
             src_path = task.traj_filepath
             if os.path.isdir(src_path):
                 paths = glob(os.path.join(src_path, f"{args.src_robot}_v2.*"))
