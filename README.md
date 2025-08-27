@@ -79,7 +79,7 @@ Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are 
 - Open/Close a box: ✅
 - Open/Close Drawer: ✅
 - Open/Close microwave: ✅
-- Pick up cup: ⛔ (Problem with usd file itself.)
-- Press 3 buttons
+- Pick up cup: ✅
+- Press 3 buttons: 
 - Put knife in the block
 

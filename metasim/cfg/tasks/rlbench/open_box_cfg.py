@@ -19,7 +19,6 @@ class OpenBoxCfg(RLBenchTaskCfg):
             mjcf_path="roboverse_data/assets/rlbench/close_box/box_base/mjcf/box_base_unique.mjcf",
         ),
     ]
-    # TODO: add checker
     traj_filepath = "roboverse_data/trajs/rlbench/open_box/v2"
     checker = JointPosChecker(
         obj_name="box_base",

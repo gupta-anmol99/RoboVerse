@@ -1,6 +1,7 @@
 from metasim.cfg.objects import RigidObjCfg
 from metasim.constants import PhysicStateType
 from metasim.utils import configclass
+from metasim.cfg.checkers import DetectedChecker, RelativeBboxDetector
 
 from .rlbench_task_cfg import RLBenchTaskCfg
 
@@ -28,7 +29,17 @@ class PutKnifeInKnifeBlockCfg(RLBenchTaskCfg):
     episode_length = 200
     traj_filepath = "roboverse_data/trajs/rlbench/put_knife_in_knife_block/v2"
     objects = _OBJECTS
-    # TODO: add checker
+    checker = DetectedChecker(
+        obj_name="knife_visual",
+        detector=RelativeBboxDetector(
+            base_obj_name="knife_block_visual",
+            relative_pos=[0.0, 0.0, 0.07185],
+            relative_quat=[1.0, 0.0, 0.0, 0.0],
+            checker_lower=[-0.08, -0.08, -0.11],
+            checker_upper=[0.08, 0.08, 0.05],
+            debug_vis=True
+        ),
+    )
 
 
 @configclass

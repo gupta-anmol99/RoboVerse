@@ -103,6 +103,7 @@ class BaseSimHandler(ABC):
 
     def set_pose(self, obj_name: str, pos: torch.Tensor, rot: torch.Tensor, env_ids: list[int] | None = None) -> None:
         states = [{obj_name: {"pos": pos[env_id], "rot": rot[env_id]}} for env_id in range(self.num_envs)]
+        log.debug(f"Setting pose for {obj_name}: {states}")
         self.set_states(states, env_ids=env_ids)
 
     ############################################################
