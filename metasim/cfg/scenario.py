@@ -81,6 +81,7 @@ class ScenarioCfg:
             TaskCls = get_task(self.task)
             ### Instantiate TaskCls with robots if supported
             if "robots" in TaskCls.__dataclass_fields__.keys():
+                
                 self.task = TaskCls(robots=self.robots)
             else:
                 self.task = TaskCls()
@@ -96,5 +97,5 @@ class ScenarioCfg:
         ### Randomization vervide by task
         if self.task is not None and self.task.random is not None:
             self.random = self.task.random
-
+        log.debug(f"Instantiating task {self.task} with robots {self.robots}")
         FileDownloader(self).do_it()
