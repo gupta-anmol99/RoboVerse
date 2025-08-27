@@ -63,11 +63,12 @@ Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are 
 ### 📍Roadmap
 - Select 6 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). ✅
 - Go through bbox cheker and detected checker ✅
-- Make a composite checker for multi joints
+- Make a composite checker for multi joints : **Next**
 - Document thier joint names and limits.
 - Add the success checker for them.
 - Verify success conditions with multiple trajectories. Some trajectores fall short of the typical success threshold.
 - Verify all 6 tasks.
+- Need to work on bbox detector for multi settings.
 
 
 ### Updates
@@ -80,6 +81,6 @@ Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are 
 - Open/Close Drawer: ✅
 - Open/Close microwave: ✅
 - Pick up cup: ✅
-- Press 3 buttons: 
-- Put knife in the block
+- Press 3 buttons: **Need composite checker**
+- Put knife in the block ✅ (Does not work for multi env)
 

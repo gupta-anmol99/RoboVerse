@@ -290,7 +290,17 @@ class IsaaclabHandler(BaseSimHandler):
         if env_ids is None:
             env_ids = list(range(self.num_envs))
 
-        states_flat = [states[i]["objects"] | states[i]["robots"] for i in range(self.num_envs)]
+        log.debug(f"Setting {states} for env_ids {env_ids}")
+        log.debug(f"self.checker.get_debug_viewers(): {self.checker.get_debug_viewers()}")
+
+        # states_flat = [states[i]["objects"] | states[i]["robots"] for i in range(self.num_envs)]
+        # Doing hacky things
+        states_flat = [
+                        (s.get("objects", {}) | s.get("robots", {})) if ("objects" in s or "robots" in s)
+                        else {"bbox_detector": s["bbox_detector"]} if "bbox_detector" in s
+                        else {}
+                        for s in states
+                    ]
         for obj in self.objects + self.robots + self.checker.get_debug_viewers():
             if obj.name not in states_flat[0]:
                 log.warning(f"Missing {obj.name} in states, setting its velocity to zero")
