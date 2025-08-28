@@ -58,11 +58,15 @@ Checkers are contained in `/metasim/cfg/checkers/checkers.py` and detectors are 
 #### Detectors
 - RelativeBboxDetector: Checks if the object is inside a bounding box. It takes a base_obj_name relative to which we define the bounding box using two opposide vertices, `checker_lower` and `checker_above`.
 
+## Notes
+1. For retargeting a demo, use retarget_demo_debugged.py instead of the original script. 
+
 ## TODOs
 
 ### 📍Roadmap
 - Select 6 tasks common in rlbench and [RH20T](https://rh20t.github.io/static/RH20T_paper_compressed.pdf). ✅
 - Go through bbox cheker and detected checker ✅
+- Retargeting to different arms ✅ (sawyer)
 - Make a composite checker for multi joints : **Next**
 - Document thier joint names and limits. ✅
 - Verify all 6 tasks.

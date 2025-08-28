@@ -79,6 +79,7 @@ def get_actions(all_actions, action_idx: int, num_envs: int, robot: BaseRobotCfg
 
 def get_states(all_states, action_idx: int, num_envs: int):
     envs_states = all_states[:num_envs]
+    # log.debug(f"All States: {all_states}")
     states = [env_states[action_idx] if action_idx < len(env_states) else env_states[-1] for env_states in envs_states]
     return states
 
@@ -174,6 +175,7 @@ def main():
     init_states, all_actions, all_states = get_traj(
         scenario.task, scenario.robots[0], env.handler
     )  # XXX: only support one robot
+
 
 
     toc = time.time()
